@@ -38,6 +38,7 @@ done
 
 ip link add h_veth$eth_id type veth peer name g_veth$eth_id
 ip link set dev h_veth$eth_id master $1
+ip link set h_veth$eth_id up
 
 set +e
 container_ps=`docker inspect $2 --format '{{.State.Pid}}'`
